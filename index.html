@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitemaps</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/@fortawesome/fontawesome-free/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container__sitemap-menu">
+        <h1 class="sitemap-menu__heading">
+          Submited sitemaps
+          <i class="fas fa-info-circle"></i>
+        </h1>
+        <div class="sitemap-menu__items">
+          <p class="sitemap-menu__item sitemap-menu__item--count">
+            Selected sitemaps: <span id="mapsCounter">1</span>
+          </p>
+          <a
+            href="#"
+            class="sitemap-menu__item sitemap-menu__item--recrawl"
+            id="mapsRecrawl"
+            >Recrawl Sitemap</a
+          >
+          <a
+            href=""
+            class="sitemap-menu__item sitemap-menu__item--remove"
+            id="mapsRemove"
+            >Remove Sitemap</a
+          >
+        </div>
+        <!-- .sitemap-menu__items ends -->
+      </div>
+      <!-- .container__sitemap-menu ends-->
+      <div class="container__filters">
+        <div class="filters__block">
+          <label for="filtersInput">Filters</label>
+          <input
+            class="filters__input"
+            type="text"
+            name="filtersInput"
+            id="filtersInput"
+            placeholder="URL or it's part"
+          />
+          <div class="filters__list">
+            <input
+              class="fliters__list--checkbox"
+              type="checkbox"
+              name="sitemapContains"
+              id="sitemapContains"
+            />
+            <label for="sitemapContains">Sitemap contains</label>
+            <input
+              class="fliters__list--checkbox"
+              type="checkbox"
+              name="sitemapDoesNotContain"
+              id="sitemapDoesNotContain"
+            />
+            <label for="sitemapDoesNotContain">Sitemap doesn't contain</label>
+            <input
+              class="fliters__list--checkbox"
+              type="checkbox"
+              name="sitemapExactMatch"
+              id="sitemapExactMatch"
+            />
+            <label for="sitemapExactMatch">Exact Match</label>
+            <div class="list__buttons">
+              <button id="sitemapSelectReset">Reset</button>
+              <button id="sitemapSelectApply">Apply</button>
+            </div>
+          </div>
+        </div>
+        <div class="filters__select filters__types">
+          All types
+          <ul class="select__items">
+            <li class="select__item">Sitemap index</li>
+            <li class="select__item">Other</li>
+          </ul>
+        </div>
+        <div class="filters__select filters__submited">
+          Submited
+        </div>
+        <div class="filters__select filters__date">
+          <i class="fas fa-calendar-alt"></i>
+          <p class="date__selected-date">2/12/19 - 2/12/19</p>
+          <div class="select__items date__container">
+            <div class="dates" id="firstMonth">
+              <div class="month month-1">
+                <div class="arrows prev-mnt">&lt;</div>
+                <div class="mnt"><p>July 2019</p></div>
+                <div class="arrows next-mnt">&gt;</div>
+              </div>
+              <div class="days"></div>
+            </div>
+            <div class="dates" id="secondMonth">
+              <div class="month month-2">
+                <div class="arrows prev-mnt">&lt;</div>
+                <div class="mnt"><p>July 2019</p></div>
+                <div class="arrows next-mnt">&gt;</div>
+              </div>
+              <div class="days"></div>
+            </div>
+            <button id="dateIsPicked">Ok</button>
+          </div>
+        </div>
+        <div class="filters__select filters__sitemaps">
+          All Sitemaps
+          <ul class="select__items">
+            <li class="select__item">Success</li>
+            <li class="select__item">Couldn't fetch</li>
+            <li class="select__item">Errors</li>
+          </ul>
+        </div>
+      </div>
+      <!-- .container__filters ends -->
+      <table class="container__table">
+        <thead>
+          <tr class="table__row table__row--head">
+            <th>
+              <input
+                class="tableCheckbox"
+                type="checkbox"
+                name="tableSitemapsCheckboxAll"
+                id="tableSitemapsCheckboxAll"
+              />
+              <label for="tableSitemapsCheckboxAll"></label>
+            </th>
+            <th>Sitemap <span id="tableSitemapsCount"></span></th>
+            <th>Type</th>
+            <th>Submited</th>
+            <th>Last check</th>
+            <th>Status</th>
+            <th>URLs</th>
+            <th>Recrawl sitemap</th>
+            <th>Remove sitemap</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <!-- .container__table  -->
+    </div>
+    <!-- .container ends -->
+    <script src="./dist/bundle.js"></script>
+  </body>
+</html>

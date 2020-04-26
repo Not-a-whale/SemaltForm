@@ -1,0 +1,38 @@
+.item__recrawl--active {
+  color: #0288d1 !important;
+}
+.item__remove--active {
+  color: #fb6868 !important;
+}
+
+.filter-input__focus {
+  border: 1px solid #0288d1 !important;
+
+  &::before {
+    border-left: 1px solid #0288d1 !important;
+  }
+
+  &::after {
+    transform: translate(50%, -25%) rotate(-135deg) !important;
+  }
+
+  .select__items {
+    display: block !important;
+  }
+}
+
+.filter-date__focus {
+  border: 1px solid #0288d1 !important;
+
+  &::before {
+    border-left: 1px solid #0288d1 !important;
+  }
+
+  &::after {
+    transform: translate(50%, -25%) rotate(-135deg) !important;
+  }
+
+  .select__items {
+    display: grid !important;
+  }
+}
