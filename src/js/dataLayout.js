@@ -60,7 +60,7 @@ function formatDate(dateString) {
   let month = months[fullDate.getMonth()];
   let day = fullDate.getDate();
 
-  fullDate = `${month} ${day},\n${year}`;
+  fullDate = `${month} ${day},<br>${year}`;
 
   return fullDate;
 }
