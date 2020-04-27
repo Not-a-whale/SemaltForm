@@ -1,7 +1,9 @@
 export const makeElements = function (dataArr) {
   const elements = [];
   for (let i = 0; i < dataArr.length; i++) {
-    const layout = `<tr class="table__row">
+    let lastCheckDate = formatDate(dataArr[i].lastCheck);
+    let lastSubmitedDate = formatDate(dataArr[i].lastSubmitted);
+    const layout = `<tr class="table__row" id=tableRow-${i + 1}>
         <td>
           <input
             class="tableCheckbox"
@@ -17,11 +19,13 @@ export const makeElements = function (dataArr) {
           ></a>
         </td>
         <td>${dataArr[i].isSitemapsIndex ? "Sitemap Index" : "Other"}</td>
-        <td>${dataArr[i].lastCheck.toLocaleString("en-US")}</td>
-        <td>${dataArr[i].lastSubmitted.toLocaleString("en-US")}</td>
-        <td class="status">${
-          !dataArr[i].errors ? "Success" : dataArr[i].errors
-        } ${!dataArr[i].errors ? "" : "errors"}</td>
+        <td>${lastCheckDate}</td>
+        <td>${lastSubmitedDate}</td>
+        <td class="status" style="color: ${
+          !dataArr[i].errors ? "#2AC9A1" : "#FB6868"
+        }; white-space: nowrap; width: 60px">${
+      !dataArr[i].errors ? "Success" : dataArr[i].errors
+    } ${!dataArr[i].errors ? "" : "errors"}</td>
         <td>${dataArr[i].urls}</td>
         <td>
           <button class="button__recrewl" id="tableButtonRecrewl-1">
@@ -34,3 +38,29 @@ export const makeElements = function (dataArr) {
   }
   return elements;
 };
+
+function formatDate(dateString) {
+  let fullDate = new Date(dateString);
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  let year = fullDate.getFullYear();
+  let month = months[fullDate.getMonth()];
+  let day = fullDate.getDate();
+
+  fullDate = `${month} ${day},\n${year}`;
+
+  return fullDate;
+}

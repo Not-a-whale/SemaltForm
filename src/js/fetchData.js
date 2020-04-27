@@ -17,23 +17,4 @@ getData(link).then((array) => {
     let e = html[i];
     tableBody.insertAdjacentHTML("afterbegin", e);
   }
-
-  function colorChanges(strArr) {
-    console.log(strArr);
-    for (let i = 0; i < strArr.length; i++) {
-      if (strArr[i].textContent) {
-        if (
-          strArr[i].textContent === "Success" ||
-          strArr[i].textContent === "success" ||
-          strArr[i].textContent === "Success "
-        ) {
-          strArr[i].style.color = "#2AC9A1";
-        } else {
-          strArr[i].style.color = "#FB6868";
-        }
-      }
-    }
-  } // Changes color of success/error status
-
-  colorChanges(statusElements);
 });
